@@ -45,7 +45,6 @@ public class RetrieveFormData {
 	    CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(
 	            sslsf).build();
 	    
-		int responseCode = 0;
 
 	    HttpPost post = new HttpPost("https://sandbox.tranzcore.com/verify");
 	    //Change to code below for live environment
@@ -58,7 +57,6 @@ public class RetrieveFormData {
 	    
 	    post.setEntity(new UrlEncodedFormEntity(nvpList)); 
         HttpResponse response = httpclient.execute(post);   
-        responseCode = response.getStatusLine().getStatusCode();
         String returnData = EntityUtils.toString(response.getEntity());
         if(returnData.equalsIgnoreCase("VERIFIED")) {
         	//If ipn response is veried you can update the transaction
