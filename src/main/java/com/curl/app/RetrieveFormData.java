@@ -59,7 +59,9 @@ public class RetrieveFormData {
         HttpResponse response = httpclient.execute(post);   
         String returnData = EntityUtils.toString(response.getEntity());
         if(returnData.equalsIgnoreCase("VERIFIED")) {
-        	//If ipn response is veried you can update the transaction
+        	//If ipn response is verified
+        	// check transaction statue ie "apstatus"
+        	//if apstatus="Completed" you can update the transaction
         }
         //Uncomment code below to to see specific error response
         //System.out.println("IPN Verification response: "+ returnData);
